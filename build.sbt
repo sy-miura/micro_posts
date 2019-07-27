@@ -16,6 +16,9 @@ envConfig := {
 
 scalaVersion := "2.12.0"
 
+TwirlKeys.templateImports ++= Seq("forms._")
+
+
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.3" % Test
 
@@ -31,6 +34,7 @@ libraryDependencies ++= Seq(
   "ch.qos.logback"         %  "logback-classic"              % "1.2.3",
   "mysql"                  %  "mysql-connector-java"         % "6.0.6",
   "com.adrianhurt"         %% "play-bootstrap"                  % "1.2-P26-B3",
+  "com.github.t3hnar" %% "scala-bcrypt" % "3.1",
   "org.flywaydb"           %% "flyway-play"                  % "4.0.0"
 )
 

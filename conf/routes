@@ -1,2 +1,6 @@
-GET     /                           controllers.HomeController.index
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET         /                       controllers.HomeController.index
+# 以下の一行を追加
+GET         /signup                 controllers.SignUpController.index
+# 以下の一行を追加
+POST        /signup/register        controllers.SignUpController.register
+GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)

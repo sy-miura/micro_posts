@@ -30,7 +30,8 @@ libraryDependencies ++= Seq(
   "org.scalikejdbc"        %% "scalikejdbc-play-initializer" % "2.7.1-scalikejdbc-3.3",
   "ch.qos.logback"         %  "logback-classic"              % "1.2.3",
   "mysql"                  %  "mysql-connector-java"         % "6.0.6",
-  "com.adrianhurt"         %% "play-bootstrap"                  % "1.2-P26-B3"
+  "com.adrianhurt"         %% "play-bootstrap"                  % "1.2-P26-B3",
+  "org.flywaydb"           %% "flyway-play"                  % "4.0.0"
 )
 
 // Adds additional packages into Twirl

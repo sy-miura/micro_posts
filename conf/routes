@@ -1,6 +1,12 @@
 GET         /                       controllers.HomeController.index
-# 以下の一行を追加
 GET         /signup                 controllers.SignUpController.index
-# 以下の一行を追加
 POST        /signup/register        controllers.SignUpController.register
+GET     /auth                       controllers.AuthController.index
+POST    /auth/login                 controllers.AuthController.login
+POST    /auth/logout                controllers.AuthController.logout
+# 以下の一行を追加
+GET         /users                  controllers.UsersController.index
+# 以下の一行を追加
+GET         /users/:id              controllers.UsersController.show(id: Long)
+
 GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)

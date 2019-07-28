@@ -33,4 +33,5 @@ object User extends SkinnyCRUDMapper[User] {
 
   def update(user: User)(implicit session: DBSession): Int =
     updateById(user.id.get).withAttributes(toNamedValues(user): _*)
+
 }

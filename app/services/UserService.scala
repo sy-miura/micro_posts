@@ -1,6 +1,7 @@
 package services
 
-import models.User
+import models.{PagedItems, User}
+import skinny.Pagination
 import scalikejdbc.{AutoSession, DBSession}
 
 import scala.util.Try
@@ -11,8 +12,9 @@ trait UserService {
 
   def findByEmail(email: String)(implicit dbSession: DBSession = AutoSession): Try[Option[User]]
 
-  def findAll(implicit dbSession:DBSession = AutoSession):Try[List[User]]
+  def findAll(pagination: Pagination)(implicit dbSession: DBSession = AutoSession): Try[PagedItems[User]]
 
   def findById(id: Long)(implicit dbSession: DBSession = AutoSession): Try[Option[User]]
+
 
 }

@@ -7,6 +7,7 @@ import play.api.Logger
 import play.api.i18n.{I18nSupport, Messages}
 import play.api.mvc._
 import services.UserService
+import skinny.Pagination
 
 @Singleton
 class UsersController @Inject()(val userService: UserService, components: ControllerComponents)
@@ -15,9 +16,11 @@ class UsersController @Inject()(val userService: UserService, components: Contro
     with AuthConfigSupport
     with AuthenticationElement
 {
-  def index:Action[AnyContent] = StackAction {implicit request =>
-    userService.findAll
-      .map{users => Ok(views.html.users.index(loggedIn,users))
+  def index(page:Int):Action[AnyContent] = StackAction {implicit request =>
+    userService.findAll(Pagination(pageSize = 10, pageNo = page))
+      .map{
+        users =>
+          Ok(views.html.users.index(loggedIn,users))
       }
       .recover{
         case e: Exception =>
